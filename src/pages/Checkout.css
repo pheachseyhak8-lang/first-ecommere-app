@@ -65,7 +65,7 @@
 /* Responsive for small screens */
 @media (max-width: 600px) {
   .checkout-form {
-    padding: 15px 20px;
+    padding: 15px 40px;
     margin: 20px 10px;
   }
 
@@ -76,5 +76,6 @@
   .checkout-form button {
     font-size: 0.95rem;
     padding: 10px 0;
+    margin: 15px ;
   }
 }
