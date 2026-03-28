@@ -1,0 +1,138 @@
+/* ===== PRODUCTS CONTAINER ===== */
+.products-container {
+  padding: 20px;
+}
+
+/* ===== TOP CONTROLS (CENTER) ===== */
+.top-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* SEARCH BOX */
+.search-box {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* INPUT + SELECT */
+.search-box input,
+.search-box select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* BUTTON */
+.search-box button {
+  padding: 10px 15px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* RESULT TEXT */
+.result-text {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ===== PRODUCTS GRID (ONLY ONE!) ===== */
+.products {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* ===== NO DATA ===== */
+.no-data {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ===== PAGINATION ===== */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.pagination button.active {
+  background: #333;
+  color: #fff;
+}
+/* ===== MOBILE (Tablet) ===== */
+@media (max-width: 768px) {
+  .products-container {
+    padding: 10px;
+  }
+
+  /* Top controls */
+  .search-box {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .search-box input,
+  .search-box select,
+  .search-box button {
+    width: 100%;
+  }
+
+  .search-box input {
+    font-size: 14px;
+  }
+
+  /* Products grid */
+  .products {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 15px;
+  }
+
+  /* Pagination */
+  .pagination {
+    flex-wrap: wrap;
+  }
+}
+
+/* ===== MOBILE (Small phones) ===== */
+@media (max-width: 480px) {
+  /* Products grid */
+  .products {
+    grid-template-columns: 1fr; /* 1 column */
+  }
+
+  .search-box input {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .search-box button {
+    padding: 8px;
+  }
+
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}

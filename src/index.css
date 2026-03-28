@@ -1,0 +1,63 @@
+body {
+  transition: background 0.3s, color 0.3s;
+}
+
+/* DARK MODE */
+body.dark {
+  background-color: #121212;
+  color: white;
+}
+
+/* Cards */
+body.dark .product-card,
+body.dark .cart-item,
+body.dark .order-card,
+body.dark .modal {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+/* Navbar */
+body.dark .navbar {
+  background-color: #1a1a1a;
+}
+
+/* Buttons */
+body.dark button {
+  background-color: #333;
+  color: white;
+}
+.theme-btn{
+    margin-left: 20px;
+    
+    
+}
+
+/* Input */
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background-color: #222;
+  color: white;
+  border: 1px solid #555;
+}
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}

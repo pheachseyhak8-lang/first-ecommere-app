@@ -1,0 +1,80 @@
+/* Checkout form container */
+.checkout-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px 25px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Title */
+.checkout-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+/* Address textarea */
+.checkout-form textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 15px;
+  transition: border 0.2s;
+}
+
+.checkout-form textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+/* Total amount */
+.checkout-form p {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+/* Place Order button */
+.checkout-form button {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.checkout-form button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .checkout-form {
+    padding: 15px 20px;
+    margin: 20px 10px;
+  }
+
+  .checkout-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .checkout-form button {
+    font-size: 0.95rem;
+    padding: 10px 0;
+  }
+}

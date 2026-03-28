@@ -1,0 +1,101 @@
+/* Container for order history */
+.order-history-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
+
+/* Title scoped to order history only */
+.order-history-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 1.8rem;
+  background-color: rgb(56, 52, 60);
+  padding: 5px 8px;
+  margin-left: 260px;
+  margin-right: 260px;
+  border-radius: 1rem;
+}
+.title {
+  position: sticky;
+  top: 140px; /* ខាងក្រោម navbar */
+  padding: 10px 25px;
+  font-size: 32px;
+  font-weight: bold;
+  z-index: 999;
+}
+/* No orders message */
+.order-history-container .no-orders {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+/* Each order card */
+.order-history-container .order-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #fafafa;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.order-history-container .order-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Header: Order ID and Date */
+.order-history-container .order-card .order-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Address, items, total */
+.order-history-container .order-card .order-address,
+.order-history-container .order-card .order-items,
+.order-history-container .order-card .order-total {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+/* Items list */
+.order-history-container .order-card .order-items ul {
+  list-style: disc;
+  margin-left: 20px;
+  padding-left: 0;
+}
+
+.order-history-container .order-card .order-items li {
+  margin-bottom: 4px;
+}
+
+/* Total price */
+.order-history-container .order-card .order-total {
+  font-weight: bold;
+  color: #222;
+}
+
+/* Responsive: shrink cards on mobile */
+@media (max-width: 600px) {
+  .order-history-container {
+    padding: 10px;
+  }
+
+  .order-history-container .order-card .order-header {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .order-history-container .order-card .order-items ul {
+    margin-left: 15px;
+  }
+}

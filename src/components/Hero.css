@@ -1,0 +1,297 @@
+/* =========================
+   HERO SECTION
+   
+========================= */
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 80px;
+  
+  /* បន្ថែមចំណុចទាំងនេះ */
+  /* background-image: url('https://www.shutterstock.com/image-photo/car-drive-on-mountain-road-260nw-2398208141.jpg'); */
+  background-size: cover;          /* លាតរូបភាពឱ្យពេញផ្ទៃ */
+  background-position: center;     /* ដាក់រូបភាពឱ្យចំកណ្តាល */
+  background-repeat: no-repeat;    /* មិនឱ្យរូបភាពបង្ហាញដដែលៗ */
+  
+  border-radius: 1.5rem;
+  margin: 20px 30px;
+}
+/* Left */
+.hero-left h1 {
+  font-size: 56px;
+  line-height: 1.1;
+  color: white;
+}
+
+/* Button */
+.hero-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  background: black;
+  color: white;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: white;
+  color: black;
+}
+
+/* Right Image Slider */
+.hero-right {
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  animation: slide 20s infinite;
+}
+
+.slider img {
+  width: 100%;
+  flex: 0 0 100%;
+}
+
+/* Animation */
+@keyframes slide {
+  0% {transform: translateX(0%);}
+  25% {transform: translateX(-100%);}
+  50% {transform: translateX(-200%);}
+  75% {transform: translateX(-300%);}
+  100% {transform: translateX(0%);}
+}
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .navbar {
+    margin: 10px;
+    padding: 15px 20px;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 20px 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  /* Hero */
+  .hero {
+    flex-direction: column;
+    padding: 40px 20px;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 36px;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .hero-right {
+    margin-top: 30px;
+  }
+
+}/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 80px;
+
+  background-image: url('https://media.licdn.com/dms/image/v2/D4D22AQHked-mMLJKNw/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1699554850359?e=2147483647&v=beta&t=GiHlmhai4JvrcTAB6aNUihAVVfDu98cmHMzaGljbKzg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 1.5rem;
+  margin: 20px 30px;
+  overflow: hidden;
+}
+
+/* Background Overlay */
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    120deg,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.2)
+  );
+  border-radius:1.5rem;
+}
+
+.hero-left,
+.hero-right{
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   HERO LEFT (TEXT)
+========================= */
+
+.hero-left{
+  animation: heroText 1.5s ease forwards;
+}
+
+.hero-left h1 {
+  font-size: 56px;
+  line-height: 1.1;
+  color: white;
+}
+
+.tag{
+  color:white;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.hero-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  background: black;
+  color: white;
+  transition: 0.3s;
+  animation: buttonPop 2s infinite;
+}
+
+.hero-btn:hover {
+  background: white;
+  color: black;
+  transform: scale(1.1);
+}
+
+/* =========================
+   HERO RIGHT IMAGE SLIDER
+========================= */
+
+.hero-right {
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  animation: slide 16s infinite ease-in-out;
+}
+
+.slider img {
+  width: 100%;
+  flex: 0 0 100%;
+  animation: carFloat 4s ease-in-out infinite;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+/* Text Slide */
+
+@keyframes heroText{
+  from{
+    opacity:0;
+    transform: translateX(-80px);
+  }
+  to{
+    opacity:1;
+    transform: translateX(0);
+  }
+}
+
+/* Slider */
+
+@keyframes slide {
+  0% {transform: translateX(0%);}
+  25% {transform: translateX(-100%);}
+  50% {transform: translateX(-200%);}
+  75% {transform: translateX(-300%);}
+  100% {transform: translateX(0%);}
+}
+
+/* Floating Car */
+
+@keyframes carFloat{
+  0%{transform: translateY(0);}
+  50%{transform: translateY(-15px);}
+  100%{transform: translateY(0);}
+}
+
+/* Button Animation */
+
+@keyframes buttonPop{
+  0%{transform: scale(1);}
+  50%{transform: scale(1.05);}
+  100%{transform: scale(1);}
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    flex-direction: column;
+    padding: 40px 20px;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 36px;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .hero-right {
+    margin-top: 30px;
+  }
+
+  
+
+}
