@@ -14,53 +14,57 @@ const Navbar = () => {
   const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
 
   return (
-    <div className="navbar">
+    <nav className="navbar">
       {/* LOGO */}
       <h2 className="logo">
-        <Link to="/"><span className="emoji">🚘</span> SUPER CAR</Link>
+        <Link to="/">
+          <span className="emoji">🚘</span> SUPER CAR
+        </Link>
       </h2>
 
-      {/* MENU */}
-      <ul className={`nav-menu ${open ? "active" : ""}`}>
-        <li><Link to="/shop">Shop</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/service">Service</Link></li>
-        <li><Link to="/model">Model</Link></li>
+      {/* OVERLAY (ចុចដើម្បីបិទ menu) */}
+      {open && <div className="overlay" onClick={() => setOpen(false)}></div>}
 
-        {/* MOBILE EXTRA */}
-        <div className="mobile-extra">
+      {/* SIDEBAR MENU */}
+      <div className={`nav-sidebar ${open ? "active" : ""}`}>
+        <div className="sidebar-header">
+           <span className="close-btn" onClick={() => setOpen(false)}>←</span>
+        </div>
+        
+        <ul className="nav-links">
+          <li><Link to="/shop" onClick={() => setOpen(false)}>Shop</Link></li>
+          <li><Link to="/about" onClick={() => setOpen(false)}>About</Link></li>
+          <li><Link to="/service" onClick={() => setOpen(false)}>Service</Link></li>
+          <li><Link to="/model" onClick={() => setOpen(false)}>Model</Link></li>
+        </ul>
+
+        <div className="sidebar-footer">
+          {user ? (
+            <div className="user-section">
+              <p>Hello, <strong>{user.name}</strong></p>
+              <button onClick={() => { logout(); setOpen(false); }} className="logout-btn">Logout</button>
+            </div>
+          ) : (
+            <Link to="/login" onClick={() => setOpen(false)} className="login-link">Login</Link>
+          )}
+        </div>
+      </div>
+
+      {/* RIGHT SIDE (Desktop & Always Visible) */}
+      <div className="nav-right">
+        {/* Desktop User Info */}
+        <div className="desktop-user">
           {user ? (
             <>
-              <span className="mobile-user">Hello, {user.name}</span>
-              <button onClick={logout}>Logout</button>
+              <span className="welcome">Hi, {user.name}</span>
+              <button onClick={logout} className="logout-btn">Logout</button>
             </>
           ) : (
-            <Link to="/login">Login</Link>
+            <Link to="/login" className="login-btn">Login</Link>
           )}
-
-          <button onClick={toggleTheme}>
-            {darkMode ? "☀️ Light" : "🌙 Dark"}
-          </button>
         </div>
-      </ul>
 
-      {/* RIGHT SIDE */}
-      <div className="nav-right">
-
-        {user ? (
-          <>
-            <span className="welcome">Hello, {user.name}</span>
-            <button onClick={logout} className="logout-btn">
-              Logout
-            </button>
-          </>
-        ) : (
-          <Link to="/login">
-            <button className="login-btn">Login</button>
-          </Link>
-        )}
-
-        <Link to="/cart" className="Cart">
+        <Link to="/cart" className="cart-icon">
           🛒 <span className="cart-count">{totalQty}</span>
         </Link>
 
@@ -68,12 +72,11 @@ const Navbar = () => {
           {darkMode ? "☀️" : "🌙"}
         </button>
 
-        <span className="menu-icon" onClick={() => setOpen(!open)}>
+        <span className="menu-icon" onClick={() => setOpen(true)}>
           ☰
         </span>
-
       </div>
-    </div>
+    </nav>
   );
 };
 

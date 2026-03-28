@@ -105,7 +105,7 @@ const Products = () => {
       <div className="search-box">
         <input
           type="text"
-          placeholder="🔍 Search car..."
+          placeholder=" 🔍Search car..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -119,14 +119,15 @@ const Products = () => {
           <option value="high-low">💲 High → Low</option>
         </select>
 
-        <button
+        <button 
+          className="reset-btn"
           onClick={() => {
             setSearch("");
             setSortOption("");
           }}
         >
-          Reset
-        </button>
+          🔄 Reset
+​​       </button>
       </div>
 
       {/* ✅ RESULT TEXT CENTER */}

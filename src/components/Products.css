@@ -1,138 +1,190 @@
-/* ===== PRODUCTS CONTAINER ===== */
+/* ============================================================
+   1. GENERAL STYLES
+   ============================================================ */
 .products-container {
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ===== TOP CONTROLS (CENTER) ===== */
+/* បំបាត់បន្ទាត់ពីក្រោមលើ Link ទាំងអស់ */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================================
+   2. TOP CONTROLS (SEARCH & FILTER)
+   ============================================================ */
 .top-controls {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  gap: 15px;
 }
 
-/* SEARCH BOX */
 .search-box {
   display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* INPUT + SELECT */
-.search-box input,
-.search-box select {
+  align-items: center;
+  gap: 12px;
+  background: #f8f9fa;
   padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 800px;
 }
 
-/* BUTTON */
-.search-box button {
-  padding: 10px 15px;
-  background: #ff4d4d;
+.search-box input {
+  flex: 2; /* ឱ្យប្រអប់ Search ធំជាងគេ */
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.search-box input:focus {
+  border-color: #4caf50;
+}
+
+.search-box select {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ប៊ូតុង Reset */
+.reset-btn {
+  padding: 12px 20px;
+  background-color: #333;
   color: white;
   border: none;
   border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* ការពារកុំឱ្យដាច់អក្សរ */
 }
 
-/* RESULT TEXT */
+.reset-btn:hover {
+  background-color: #ff4d4d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 77, 77, 0.2);
+}
+
 .result-text {
-  margin-top: 10px;
-  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
 }
 
-/* ===== PRODUCTS GRID (ONLY ONE!) ===== */
+/* ============================================================
+   3. PRODUCTS GRID
+   ============================================================ */
 .products {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
-
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
+  margin-bottom: 40px;
 }
 
-/* ===== NO DATA ===== */
 .no-data {
+  grid-column: 1 / -1;
   text-align: center;
-  margin-top: 20px;
+  padding: 50px;
+  color: #888;
 }
 
-/* ===== PAGINATION ===== */
+/* ============================================================
+   4. PAGINATION
+   ============================================================ */
 .pagination {
-  margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 10px;
+  margin-top: 20px;
 }
 
 .pagination button {
-  padding: 8px 14px;
-  border: none;
-  background: #eee;
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 6px;
+  transition: 0.3s;
+  font-weight: 500;
 }
 
 .pagination button.active {
-  background: #333;
-  color: #fff;
+  background: #4caf50;
+  color: white;
+  border-color: #4caf50;
 }
-/* ===== MOBILE (Tablet) ===== */
+
+.pagination button:hover:not(.active) {
+  background: #f0f0f0;
+}
+
+/* ============================================================
+   5. MOBILE RESPONSIVE (សំខាន់បំផុត!)
+   ============================================================ */
 @media (max-width: 768px) {
   .products-container {
-    padding: 10px;
+    padding: 20px 15px;
   }
 
-  /* Top controls */
+  /* រៀបចំ Search Box ឱ្យបង្រួមខ្លី (Compact) */
   .search-box {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-  }
-
-  .search-box input,
-  .search-box select,
-  .search-box button {
-    width: 100%;
+    display: grid;
+    margin-right: 10px ;
+    gap: 8px;
+    padding: 8px;
+    
   }
 
   .search-box input {
-    font-size: 14px;
+    grid-column: span 2; /* Input រត់ពេញទទឹងជួរទី១ */
+    width: 95.5%;
+    padding: 10px;
+    margin-right: 30px;
+
   }
 
-  /* Products grid */
+  .search-box select, 
+  .reset-btn {
+    grid-column: span 1; /* Select និង Reset នៅទន្ទឹមគ្នាជួរទី២ */
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    height: 45px; /* កម្ពស់ស្មើគ្នា */
+  }
+
+  /* ផលិតផល៖ បង្ហាញ ២ ជួរដើម្បីកុំឱ្យវែងពេក */
   .products {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 
-  /* Pagination */
-  .pagination {
-    flex-wrap: wrap;
+  .top-controls {
+    margin-bottom: 25px;
   }
 }
 
-/* ===== MOBILE (Small phones) ===== */
 @media (max-width: 480px) {
-  /* Products grid */
+  /* សម្រាប់ទូរស័ព្ទតូចបំផុត */
   .products {
-    grid-template-columns: 1fr; /* 1 column */
+    grid-template-columns: repeat(2, 1fr); /* នៅតែរក្សា ២ ជួរដដែល */
+    gap: 10px;
   }
-
-  .search-box input {
-    padding: 8px;
+  
+  .search-box input, .search-box select, .reset-btn {
     font-size: 13px;
-  }
-
-  .search-box button {
-    padding: 8px;
-  }
-
-  .pagination button {
-    padding: 6px 10px;
-    font-size: 12px;
   }
 }
